@@ -13,10 +13,21 @@ public class TiendaSQLHelper extends SQLiteOpenHelper {
     public TiendaSQLHelper(@Nullable Context context) {
         super(context, BASE, null, 3);
         miContexto=context;
-        File rutaArchivo= miContexto.getDatabasePath(BASE);
-        copiarBD(rutaArchivo);
-    }
 
+        File rutaArchivo= miContexto.getDatabasePath(BASE);
+        if(!existeBase(rutaArchivo.getAbsolutePath()))
+     copiarBD(rutaArchivo);
+    }
+    private boolean existeBase(String ruta){
+        SQLiteDatabase siDB=null;
+        siDB=SQLiteDatabase.openDatabase(ruta,null,SQLiteDatabase.OPEN_READONLY);
+        if (siDB != null) {
+            siDB.close();
+            return true;
+            }
+    return false;
+
+    };
     private void copiarBD(File rutaArchivo){
         try {
             InputStream inputStream=miContexto.getAssets().open(BASE);

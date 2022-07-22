@@ -21,6 +21,7 @@ public class Persona {
         sql="INSERT INTO persona (id,nombre,estado_civil,tipo_sangre)";
         sql+="VALUES ('"+ getId()+"','"+ getNombre()+"','" + getEstadoCivil() + "','"+getTipoSangre()+"')";
         tiendaSQLHelper.getWritableDatabase().execSQL(sql);
+
     }
     public String getId() {
         return id;

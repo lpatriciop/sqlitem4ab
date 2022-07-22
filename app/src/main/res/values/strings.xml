@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SQLiteM4A</string>
+    <string name="textview">Ejemplo</string>
 </resources>

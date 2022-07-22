@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             persona.setTipoSangre(txtTipoSangre.getText().toString());
 
             persona.guardaPersona(getApplicationContext());
-
+            Toast.makeText(getApplicationContext(),"Creado.",Toast.LENGTH_LONG).show();
         }
     };
 }
